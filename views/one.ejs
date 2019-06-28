@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN--APP</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/one.css">
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="/stylesheets/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <%-include('header')%>
+    <%-include('nav')%>
+
+    <section>
+        <% for(var i=0;i<list.length;i++) { %>
+        <div id="body">
+            <div>
+                <h3 class="text-center"><%=list[i].title%></h3>
+                <small>作者:<span style="color: red"><%=list[i].author%></span>• <%=list[i].create_at%></small><br>
+                <%if(list[i].img) {%>
+                <img src="/uploads/<%=list[i].img%>" alt="">
+                <% } %>
+            </div>
+
+            <p><%-list[i].content%></p><br>
+            <button>阅读文章</button>
+           <p class="text-right"><span class="glyphicon glyphicon-heart"></span> 阅读 <%=list[i].view%></p>
+        </div><br>
+        <% } %>
+
+        <% if(totalPage >=1) { %>
+        <ul id="ul">
+            <% if(page > 1) { %>
+            <li><a href="/?page=<%=parseInt(page)-1%>"><<</a></li>
+            <% } %>
+            <li><a href="">第<%=page%>页/共<%=totalPage%>页</a></li>
+            <% if(totalPage > page) { %>
+            <li><a href="/?page=<%= parseInt(page)+1%>">>></a></li>
+            <% } %>
+        </ul>
+        <%  } %>
+    </section>
+
+    <aside>
+      
+      <div id="aside-one">
+          <br>
+          <div style="width: 60px;border: 1px solid red"></div>
+            <p style="margin-left: 20px;color:red">博主简介</p>
+            <div id="icon">
+                <img src="./images/icon.jpg" alt="">
+             </div>
+            <div id="two">
+                <p>赵晨光</p>
+                <p>百度资深UI设计师</p>
+                <p>公众号：大牙的设计笔记</p>
+            </div><br>
+            <p style="text-align: center">个性签名：成功者决不放弃，放弃者绝不成功。</p>
+        </div><br>
+       <p style="margin-left: 16px;">个人标签</p>
+       <div id="aside-two">
+          <br>
+          <button class="btn btn-primary">手绘</button>
+          <button class="btn btn-success">ps教程</button>
+          <button class="btn btn-danger">文字特效</button>
+          <button class="btn btn-info">调色</button><br><br>
+          <button class="btn btn-primary">文字特效</button>
+          <button class="btn btn-primary">调色</button>
+           <p></p>
+       </div>
+       <div id="aside-three">
+          <br>
+          <div style="width: 60px;border: 1px solid red"></div>
+            <p style="margin-left: 20px;">精选文章</p>
+            <div id="img">
+                <img src="./images/5431586.jpg" alt="">
+             </div>
+            <br>
+            <p style="margin-left: 13px;">越努力越幸运,字体效果设计（教程）</p>
+            <small style="margin-left: 13px;">2018-02-06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart"></span> 阅读 2399</small>
+        </div><br>
+        <div id="aside-three">
+          <br>
+          <div style="width: 60px;border: 1px solid red"></div>
+            <p style="margin-left: 20px;">热门文章</p>
+            <p style="margin-left: 13px; color:red">越努力越幸运,字体效果设计（教程）</p>
+            <small style="margin-left: 13px;">2018-02-06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart"></span> 阅读 2399</small><br>
+            <p style="margin-left: 13px; color:red">越努力越幸运,字体效果设计（教程）</p>
+            <small style="margin-left: 13px;">2018-02-06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart"></span> 阅读 2399</small>
+            <p style="margin-left: 13px; color:red">越努力越幸运,字体效果设计（教程）</p>
+            <small style="margin-left: 13px;">2018-02-06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-heart"></span> 阅读 2399</small>
+        </div><br>
+    </aside>
+
+    <%-include('footer')%>
+    
+</body>
+</html>

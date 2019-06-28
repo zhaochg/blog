@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="/stylesheets\bootstrap-3.3.7-dist\css\bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/one.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+<body>
+<%- include('header') %>
+<div class="container">
+    <%- include('nav') %>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-2 col-sm-3 col-xs-3">
+                <ul class="nav nav-pills nav-stacked text-center logo">
+                    <li class="myactive">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-fire"></span>
+                            <br>
+                            <small>基本资料</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-file"></span>
+                            <br>
+                            <small>文章管理</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-leaf"></span>
+                            <br>
+                            <small>分类管理</small>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span class="glyphicon glyphicon-eye-close"></span>
+                            <br>
+                            <small>草稿箱</small>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-7 col-sm-6 col-xs-6">
+                <form action="#">
+                    <div class="lead">
+                        <strong>基本资料</strong>&nbsp;&nbsp;<small>修改你的基本资料，将显示在首页博主简介中，并可以让更多的朋友认识你</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">昵称:</label>&nbsp;&nbsp;<small>它将显示在首页的名称</small>
+                        <input type="text" class="form-control" id="name" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="qianm">个性签名:</label>&nbsp;&nbsp;<small>你的设计或者一句话介绍</small>
+                        <input type="text" class="form-control" id="qianm" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="zhiwu">职位:</label>&nbsp;&nbsp;<small>曾经担任过或现任的职位</small>
+                        <input type="text" class="form-control" id="zhiwu" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="msn">社交帐号:</label>&nbsp;&nbsp;<small>大家可以从更多的渠道关注你</small>
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-eye-open"></span></span>
+                            <input type="text" class="form-control" id="msn" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <button type="button" class="btn btn-danger">确认</button>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                <input type="reset" class="btn btn-default btn-block" value="取消">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3">
+                <div class="text-center">
+                    <img src="images/icon.jpg" class="portrait" id="view">
+                    <div class="upload btn btn-danger btn-block">
+                        <input type="file" onchange="viewImg(this)">
+                        <span>上传头像</span>
+                    </div>
+                    <button class="btn-block btn btn-default" data-toggle="modal" data-target=".bs-example-modal-sm">修改密码</button>
+                    <div class="modal fade bs-example-modal-sm" tabindex="-1">
+                        <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title">设置密码</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="#">
+                                        <div class="form-group text-left has-feedback">
+                                            <label for="myold">原密码:</label>
+                                            <input type="password" class="form-control" id="myold">
+                                            <span class="glyphicon glyphicon-th form-control-feedback"></span>
+                                        </div>
+                                        <div class="form-group text-left has-feedback">
+                                            <label for="mynew">新密码:</label>
+                                            <input type="password" class="form-control" id="mynew">
+                                            <span class="glyphicon glyphicon-th form-control-feedback"></span>
+                                        </div>
+                                        <div class="form-group text-left has-feedback">
+                                            <label for="repeat">确认新密码:</label>
+                                            <input type="password" class="form-control" id="repeat">
+                                            <span class="glyphicon glyphicon-th form-control-feedback"></span>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-danger btn-block" data-dismiss="modal">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('footer') %>
+</body>
+<script src="/javascripts/jquery-3.2.1.min.js"></script>
+<script src="/stylesheets\bootstrap-3.3.7-dist\js/bootstrap.min.js"></script>
+<script src="/javascripts/personal.js"></script>
+<script type="text/javascript">
+
+    var E = window.wangEditor
+    var editor = new E('#content-div')
+    //editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+    editor.customConfig.uploadImgServer = '/upload';
+    editor.customConfig.uploadFileName = 'img'
+    var $text1 = $('#content-area')
+    editor.customConfig.onchange = function (html) {
+        // 监控变化，同步更新到 textarea
+        $text1.val(html)
+    }
+    editor.create()
+    // 初始化 textarea 的值
+    $text1.val(editor.txt.html())
+
+
+    //图片上传预览
+    function preview(file) {
+        var prevDiv = document.getElementById('preview');
+        if (file.files && file.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (evt) {
+                prevDiv.innerHTML = '<img src="' + evt.target.result + '" />';
+            }
+            reader.readAsDataURL(file.files[0]);
+        } else {
+            prevDiv.innerHTML = '<div class="img" style="filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src=\'' + file.value + '\'"></div>';
+        }
+    }
+</script>
+</html>

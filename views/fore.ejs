@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN--APP</title>
+    <link rel="stylesheet" href="/stylesheets\bootstrap-3.3.7-dist\css\bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/fore.css">
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="\stylesheets\bootstrap-3.3.7-dist\js/bootstrap.js"></script>
+</head>
+<body>
+    <%-include('header')%>
+    <%-include('nav')%>
+
+    <form action="/article/add" enctype="multipart/form-data" method="post">
+        <div class="container">
+
+           <div id="div_one">
+                <span class="glyphicon glyphicon-user"> 赵晨光</span>
+                <div id="view"  style="width: 260px;height: 200px;background: gray"></div>
+                <div class="upload">
+                   <span>上传文件</span>
+                   <input type="file" onchange="viewImg(this)" name="img">
+                </div>
+           </div>
+           <div id="div_two">
+              <p id="title">标题：</p>
+              <input id="title_one" type="text" name="title"><br><br>
+              <p id="">类型：</p>
+              <select  id="select" name="category_id">
+                  <% for(let i = 0;i<category.length;i++) { %>
+                  <option value="<%= category[i]._id %>"><%=category[i].name %></option>
+                  <% } %>
+              </select>
+              <div id="right">
+                  <p>原作者：</p>
+                  <input type="text" placeholder="原作者" name="author">
+              </div><br><br>
+              <p>精华文章：</p>
+              <input type="radio" name="1" >是
+              <input id="name" type="radio" name="0">否
+           </div>
+
+        </div>
+        <div class="container">
+           <div id="div_three">
+               <b>文章正文</b> <small>在这里填写详细内容分享给大家</small>
+           </div><br>
+            <textarea name="content" id="content_area" cols="30" rows="10" style="display: none"></textarea>
+            <div id="editor">
+                <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+            </div>
+        </div>
+        <button type="submit">提交</button>
+    </form>
+    <%-include('footer')%>
+    
+</body>
+</html>
+<script type="text/javascript" src="/javascripts/wangEditor.min.js"></script>
+<script>
+     function viewImg(file){
+        var div = document.getElementById('view')
+        var fileRrader = new FileReader();
+        if(file.files && file.files[0]){
+            fileRrader.readAsDataURL(file.files[0])
+            fileRrader.onload = function(ev){
+                ev.target.result
+                div.innerHTML = "<img src='"+ev.target.result+"' >"
+             }
+         }
+    }
+
+
+     var E = window.wangEditor
+     var editor = new E('#editor')
+     //editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+     editor.customConfig.uploadImgServer = '/upload';
+     editor.customConfig.uploadFileName = 'img'
+     var $text1 = $('#content_area')
+     editor.customConfig.onchange = function (html) {
+         // 监控变化，同步更新到 textarea
+         $text1.val(html)
+     }
+     editor.create()
+     // 初始化 textarea 的值
+     $text1.val(editor.txt.html())
+</script>

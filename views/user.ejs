@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets\bootstrap-3.3.7-dist\css\bootstrap.css">
+    <style>
+        header{
+            background-image: url(../images/headerbg.jpg);
+            height:230px;
+            margin-top: 10px;
+            text-align: center
+        }
+        header p{
+            font-size: 40px;
+            color: white;
+            line-height: 230px;
+        }
+        .form{
+            border-width: 2px solid gray;
+            height: 50px;
+            width: 300px;
+            /*            border-radius: 5px;*/
+            font-size: 20px;
+        }
+        #div{
+            width: 400px;
+            height: 250px;
+            margin-top: 30px;
+            margin-left: 300px;
+        }
+        #div p{
+            color: red;
+            font-size: 20px;
+            margin-left: 16px;
+        }
+        #img{
+            float: right;
+            margin-top: -250px;
+            margin-right: 300px;
+            height: 250px;
+        }
+        #box{
+            margin-left: 16px;
+        }
+        #div button{
+            width: 350px;
+            height: 30px;
+            margin-left: 15px;
+            color: white;
+            background-color: red;
+            border-width: 0px;
+        }
+        footer{
+            height: 200px;
+            background-color: black;
+            margin-top: 50px;
+        }
+        #td1{
+            color: white;
+            font-size: 20px;
+            width: 220px;
+        }
+        #td2 ul li{
+            list-style: none;
+            float: left;
+            margin-left: 20px;
+
+        }
+        #td3 img{
+
+            float: left;
+            margin-left: 60px;
+        }
+        #arr{
+            float: left;
+            width: 140px;
+            margin-left: 20px;
+        }
+        #fl{
+            float: right;
+            margin-left: 40px;
+        }
+
+        footer table{
+            margin: auto;
+            margin-top: 10px;
+
+        }
+
+    </style>
+</head>
+<body>
+<header class="container">
+    <p>成功者绝不言放弃，放弃者绝不会成功。</p>
+</header>
+<div id="div" >
+    <p>登录</p>
+    <form action="/users/login" method="post">
+        <div class="input-group input-group-lg container">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+            <input type="text" class="form" placeholder="请输入用户名" name="name">
+        </div><br>
+        <div class="input-group input-group-lg container">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+            <input type="password" class="form" placeholder="请输入密码" name="password">
+        </div><br>
+        <input id="box" type="checkbox">&nbsp;&nbsp;<span>记住密码</span><br><br>
+        <button type="submit">登录</button>
+    </form>
+
+</div>
+<img id="img" src="/images/loginbg.png" alt="">
+<footer class="container">
+    <table>
+        <tr>
+            <td id="td1">联系方式</td>
+            <td id="td2">
+                <ul>
+                    <li>主页</li>
+                    <li>文章推荐</li>
+                    <li>个人中心</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>个人微信号：1234565<br>邮箱：zhao@163.com<br>微博：新浪微博@晨</td>
+            <td id="td3">
+                <br>
+                <img src="/images/654513.jpg" alt="">
+                <div id="arr">成功者绝不言放弃，放弃者绝不会成功。<br><br>2018-02-05&nbsp;来源自网络</div>
+                <div id="fl">个人微信号：1234565<br>邮箱：zhao@163.com<br>微博：新浪微博@晨</div>
+
+            </td>
+        </tr>
+    </table>
+</footer>
+<script src="/javascripts/layer/layer.js"></script>
+<script>
+    var error = '<%=locals.error%>';
+    if(error){
+        layer.msg(error)
+    }
+</script>
+</body>
+</html>
